@@ -40,7 +40,7 @@ describe('Create Statement Controller', () => {
     const response = await request(app).post('/api/v1/statements/deposit').send({
       user_id: id,
       type: OperationType.DEPOSIT,
-      amount: 180,
+      amount: 250,
       description: 'Description of test DEPOSIT'
     }).set({
       Authorization: `Bearer ${token}`
@@ -58,10 +58,10 @@ describe('Create Statement Controller', () => {
 
     const { token } = responseAuthenticate.body;
 
-    const response = await request(app).post('/api/v1/statements/deposit').send({
+    const response = await request(app).post('/api/v1/statements/withdraw').send({
       user_id: id,
       type: OperationType.WITHDRAW,
-      amount: 250,
+      amount: 180,
       description: 'Description of test WITHDRAW'
     }).set({
       Authorization: `Bearer ${token}`
